@@ -30,6 +30,30 @@
     </header>
     <div class="container">
       <!-- Timeblocks go here -->
+      <div class="slot">00</div>
+      <div class="slot">01</div>
+      <div class="slot">02</div>
+      <div class="slot">03</div>
+      <div class="slot">04</div>
+      <div class="slot">05</div>
+      <div class="slot">06</div>
+      <div class="slot">07</div>
+      <div class="slot">08</div>
+      <div class="slot">09</div>
+      <div class="slot">10</div>
+      <div class="slot">11</div>
+      <div class="slot">12</div>
+      <div class="slot">13</div>
+      <div class="slot">14</div>
+      <div class="slot">15</div>
+      <div class="slot">16</div>
+      <div class="slot">17</div>
+      <div class="slot">18</div>
+      <div class="slot">19</div>
+      <div class="slot">20</div>
+      <div class="slot">21</div>
+      <div class="slot">22</div>
+      <div class="slot">23</div>
       <!-- actually generate div elements perhaps with text input fields in them -->
         <!-- each has corresponding class or data attributs that corr. to hour of the day so we can identify each slot and get its reference -->
     </div>
@@ -38,11 +62,34 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
     <script>
 
-      var today = moment().format('MMMM Do YYYY, h:mm:ss a');   
-      var todaysAgenda = localStorage.getItem(today);
+      var today = moment().format('DDD'); 
+      var currentHour = moment().hour();
+      console.log(currentHour);  
+      // console.log(todaysAgenda)
+      // localStorage.clear();
+      var todaysAgendaString = localStorage.getItem(today);
+      var todaysAgenda = JSON.parse(todaysAgendaString);
       console.log(todaysAgenda)
+      localStorage.setItem(today, '{"hr9": "get up", "hr10": "go for a walk"}');
+      localStorage.setItem(+today +1, '{"09": "eat", "10": "sleep"}');
 
-      localStorage.setItem(today, "{9: 'get up', 10: 'go for a walk'}");
+      var timeSlots = document.getElementsByClassName("slot");
+      console.log(timeSlots);
+
+      for(var i = 0; i< timeSlots.length; i++){
+        console.log(timeSlots[i]);
+        if(+timeSlots[i].textContent < currentHour){
+          timeSlots[i].className = timeSlots[i].className + " past "
+        }
+        else if(+timeSlots[i].textContent === currentHour){
+          timeSlots[i].className = timeSlots[i].className + " present "
+        }
+        else {
+          timeSlots[i].className = timeSlots[i].className + " future "
+        }
+      }
+    
+      
       // read the data from local storage
 
     </script>
