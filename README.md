@@ -1,4 +1,16 @@
-# day-planner
+# Homework 5 -  Day-Planner
+
+## Task:
+
+According to the user story and acceptance criteria below, craft a calendar web application that allows you to save the events for the hours in a given day. 
+
+## Development for the future:
+
+If I were to develop this further, I would make an app that would allow you to store multiple days and switch between them. With the nature of this app and assignment, it seems we are limited to a given day, and one can overwrite tasks in a given hour, but there is no need for the functionality of clearing the local storage. I would then:
+-make a button to clear a given task
+-make a button to clear the storage for a day
+-create a system whereby you can navigate through different days
+-update my local storage so that I could store and recall the data by day rather than by hour.
 
 05 Third-Party APIs: Work Day Scheduler
 Create a simple calendar application that allows the user to save events for each hour of the day. This app will run in the browser and feature dynamically updated HTML and CSS powered by jQuery.
